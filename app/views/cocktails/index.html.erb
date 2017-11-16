@@ -2,26 +2,24 @@
 
 <h1>Cocktails</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail %></td>
-        <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
-        <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% myArray = ["160x120", "160x144", "176x144", "180x132", "180x135", "192x144", "234x60", "256x192", "320x200", "320x240", "320x288", "320x400", "352x288", "352x240", "384x256", "384x288", "392x72", "400x300", "460x55", "480x320", "468x32", "468x60", "512x342", "512x384", "544x372", "640x350", "640x480", "640x576", "704x576", "720x350", "720x400", "720x480", "720x483", "720x484", "720x486", "720x540", "720x576", "729x348", "768x576", "800x600", "832x624", "856x480", "896x600", "960x720", "1024x576", "1024x768", "1080x720", "1152x768", "1152x864", "1152x870", "1152x900", "1280x720", "1280x800", "1280x854", "1280x960", "1280x992", "1280x1024", "1360x766", "1365x768", "1366x768", "1365x1024", "1400x788", "1400x1050" ]%>
+<div class="container">
+  <div class="row">
+<% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/<%= myArray.sample %>/?cocktail');">
+  <div class="card-description">
+    <h2><%= cocktail.name %></h2>
+    <p><%= link_to 'Show', cocktail %> | <%= link_to 'Edit', edit_cocktail_path(cocktail) %> | <%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+</div>
 <br>
+</div>
+    <% end %>
 
-<%= link_to 'New Cocktail', new_cocktail_path %>
+  </div>
+</div>
+<br>
+<center><%= link_to 'New Cocktail', new_cocktail_path, {:class=>"btn-treehouse"}%></center>
+
